@@ -1,0 +1,8 @@
+.navBar_cartButton{
+    background-color: rgb(127, 136, 255);
+    width:70px;
+    height:30px;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: bold;
+}
