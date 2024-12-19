@@ -3,11 +3,11 @@ import NavList from "../components/NavList"
 import "../stylings/navBar.css"
 import CartButton from './CartButton'
 
-const NavBar = () => {
+const NavBar = (props) => {
   return (
     <nav className='navBar'>
      <NavList/>
-     <CartButton/>
+     <CartButton cartHandler={props.cartHandler}/>
     </nav>
   )
 }

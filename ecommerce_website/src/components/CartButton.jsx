@@ -1,9 +1,9 @@
 import React from 'react'
 import "../stylings/cartButton.css"
 
-const CartButton = () => {
+const CartButton = (props) => {
   return (
-    <button className="navBar_cartButton">Cart</button>
+    <button onClick={props.cartHandler}className="navBar_cartButton">Cart</button>
   )
 }
 
