@@ -1,13 +1,14 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import NavList from "../components/NavList"
 import "../stylings/navBar.css"
 import CartButton from './CartButton'
-
-const NavBar = (props) => {
+import cartContext from '../context/cartContext'
+const NavBar = () => {
+  let cartCtx=useContext(cartContext)
   return (
     <nav className='navBar'>
      <NavList/>
-     <CartButton cartHandler={props.cartHandler}/>
+     <CartButton cartHandler={cartCtx.cartHandler}/>
     </nav>
   )
 }

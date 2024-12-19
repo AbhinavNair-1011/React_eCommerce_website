@@ -1,14 +1,14 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import Products from './Products'
+import cartContext from '../context/cartContext'
 
-const StorePage = (props) => {
-    
+const StorePage = () => {
+
    
     
   return (
     <div>
-      <Products products={props.products}/>
-      
+       <Products/> 
         </div>
   )
 }

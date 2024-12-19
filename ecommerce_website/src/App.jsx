@@ -1,15 +1,64 @@
-import React ,{useState} from 'react'
+import React ,{useReducer, useState} from 'react'
 import NavBar from './components/NavBar'
-import products from "./assets/data.json"
 
-import CartButton from './components/CartButton'
 import "./app.css"
+import cartContext from './context/cartContext'
+
 import StorePage from './components/StorePage'
 import CartPage from './components/CartPage'
 
+
 const App = () => {
+  const cartReducer = (state,action)=>{
+    
+    if(action.type==="add"){
+
+      let newItem= action.payload;
+      if (state.cartItems.some(item=>item.title===newItem.title)){
+        
+      let array= state.cartItems.map(item=>{
+          if(item.title===newItem.title){
+            return {...item,quantity:item.quantity+1}
+          }else {
+            return item
+          }
+        })
+        return {...state,cartItems:[...array]}
+     
+        
+      }
+      return {...state,cartItems:[...state.cartItems,newItem]}
+    }
+
+    if(action.type==="delete"){
+      let deleteItem=action.payload
+      if(deleteItem.quantity>1){
+        
+        let array= state.cartItems.map(item=>{
+         if(item.title===deleteItem.title){
+          return {...item,quantity:item.quantity-1}
+         }
+        return item
+      })
+      return {...state,cartItems:[...array]}
+      }
+        let array =state.cartItems.filter((item)=>(item !== action.payload))
+        return{...state,cartItems:[...array]}
+    }
+    
+    if(action.type==="totalPrice"){
+      let totalPrice=0
+     state.cartItems.map(item=>{
+        totalPrice=totalPrice+(item.price *item.quantity)
+      })
+      return {...state,total:totalPrice}
+
+
+    }
+  }
 
   const [cartOpenStatus,setCartOpenStatus]=useState(false)
+  const [cart,dispatch]=useReducer(cartReducer,{cartItems:[],total:0})
 
   const cartHandler= (e)=>{
     e.preventDefault();
@@ -18,13 +67,12 @@ const App = () => {
   }
 
   return (
-    <>
-    <NavBar cartHandler={cartHandler}/>
-    {cartOpenStatus == true ? <CartPage cartHandler={cartHandler} />:<StorePage products={products}/>}
+    <cartContext.Provider value={{cartHandler,cart,dispatch}}>
+    <NavBar/>
+    {cartOpenStatus == true ? <CartPage />:<StorePage />}
+    </cartContext.Provider>
 
 
-
-    </>
   )
 }
 
