@@ -6,7 +6,8 @@ import cartContext from './context/cartContext'
 
 import StorePage from './components/StorePage'
 import CartPage from './components/CartPage'
-
+import About from "./components/About"
+import {BrowserRouter, Routes,Route} from "react-router-dom"
 
 const App = () => {
   const cartReducer = (state,action)=>{
@@ -68,8 +69,14 @@ const App = () => {
 
   return (
     <cartContext.Provider value={{cartHandler,cart,dispatch}}>
+      <BrowserRouter>
     <NavBar/>
-    {cartOpenStatus == true ? <CartPage />:<StorePage />}
+    <Routes>
+      <Route index element={<StorePage/>}/>
+      <Route path="/about" element={<About/>}/>
+      <Route path="/cart" element={<CartPage/>}/>
+    </Routes>
+    </BrowserRouter>
     </cartContext.Provider>
 
 

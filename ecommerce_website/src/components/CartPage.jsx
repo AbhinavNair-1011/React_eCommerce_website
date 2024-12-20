@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import products from "../assets/data.json";
 import "../stylings/cartPage.css";
 import cartContext from "../context/cartContext";
+import { NavLink } from "react-router";
 
 const CartPage = () => {
   const cartCtx = useContext(cartContext);
@@ -53,7 +54,9 @@ const CartPage = () => {
 
       </table>
       <button className="cartClose" onClick={cartCtx.cartHandler}>
+        <NavLink to="/">
         X
+        </NavLink>
       </button>
         <p>Total Price :{cartCtx.cart.total}</p>
     </div>

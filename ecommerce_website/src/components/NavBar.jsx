@@ -3,6 +3,8 @@ import NavList from "../components/NavList"
 import "../stylings/navBar.css"
 import CartButton from './CartButton'
 import cartContext from '../context/cartContext'
+
+
 const NavBar = () => {
   let cartCtx=useContext(cartContext)
   return (

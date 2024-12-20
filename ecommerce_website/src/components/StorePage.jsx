@@ -3,9 +3,7 @@ import Products from './Products'
 import cartContext from '../context/cartContext'
 
 const StorePage = () => {
-
-   
-    
+      
   return (
     <div>
        <Products/> 
