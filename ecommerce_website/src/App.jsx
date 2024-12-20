@@ -18,6 +18,7 @@ const App = () => {
     if(action.type==="add"){
 
       let newItem= action.payload;
+   
       if (state.cartItems.some(item=>item.title===newItem.title)){
         
       let array= state.cartItems.map(item=>{
@@ -36,6 +37,7 @@ const App = () => {
 
     if(action.type==="delete"){
       let deleteItem=action.payload
+      
       if(deleteItem.quantity>1){
         
         let array= state.cartItems.map(item=>{

@@ -5,7 +5,7 @@ import cartContext from '../context/cartContext'
 const StorePage = () => {
       
   return (
-    <div>
+    <div className="storePage_container">
        <Products/> 
         </div>
   )
