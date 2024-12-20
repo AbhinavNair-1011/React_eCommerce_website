@@ -1,0 +1,97 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
+  
+  .header {
+    background-color: #e0e0e0;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .header-title {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  .album-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .album-text {
+    font-size: 1.5rem;
+    color: #666;
+  }
+  
+  .album-button {
+    background-color: #007bff;
+    color: white;
+    font-size: 1.5rem;
+    border: none;
+    border-radius: 50%;
+    padding: 10px 15px;
+    cursor: pointer;
+  }
+  
+  .album-button:hover {
+    background-color: #0056b3;
+  }
+  
+  .tours-section {
+    background-color: white;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .tours-title {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .tour-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ccc;
+    padding: 10px 0;
+  }
+  
+  .tour-date, .tour-location, .tour-venue {
+    margin: 0;
+    font-size: 1.2rem;
+    color: #555;
+  }
+  .tour-location, .tour-venue{
+    width:300px;
+    text-align: center;
+  }
+  
+  .buy-ticket {
+    background-color: #007bff;
+    color: white;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 15px;
+    cursor: pointer;
+  }
+  
+  .buy-ticket:hover {
+    background-color: #0056b3;
+  }
+  
+  .footer {
+    background-color: #00bcd4;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    font-size: 1.2rem;
+    margin-top: 20px;
+  }
+  

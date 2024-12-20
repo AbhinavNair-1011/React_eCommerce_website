@@ -7,9 +7,12 @@ import cartContext from './context/cartContext'
 import StorePage from './components/StorePage'
 import CartPage from './components/CartPage'
 import About from "./components/About"
+import Home from "./components/Home"
+
 import {BrowserRouter, Routes,Route} from "react-router-dom"
 
 const App = () => {
+  
   const cartReducer = (state,action)=>{
     
     if(action.type==="add"){
@@ -72,8 +75,10 @@ const App = () => {
       <BrowserRouter>
     <NavBar/>
     <Routes>
-      <Route index element={<StorePage/>}/>
+      <Route index element={<Home/>}/>
       <Route path="/about" element={<About/>}/>
+      <Route path="/store" element={<StorePage/>}/>
+
       <Route path="/cart" element={<CartPage/>}/>
     </Routes>
     </BrowserRouter>
