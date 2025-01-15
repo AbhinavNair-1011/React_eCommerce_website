@@ -17,6 +17,10 @@ const navList = () => {
             <NavLink to="/about">about</NavLink>
 
             </li>
+            <li className="navList_items" id="navList_about">
+            <NavLink to="/contactUs">Contact Us</NavLink>
+
+            </li>
         </ul>
   )
 }

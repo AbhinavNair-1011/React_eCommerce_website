@@ -8,6 +8,7 @@ import StorePage from './components/StorePage'
 import CartPage from './components/CartPage'
 import About from "./components/About"
 import Home from "./components/Home"
+import ContactUs from './components/ContactUs'
 
 import {BrowserRouter, Routes,Route} from "react-router-dom"
 
@@ -82,6 +83,7 @@ const App = () => {
       <Route path="/store" element={<StorePage/>}/>
 
       <Route path="/cart" element={<CartPage/>}/>
+      <Route path="/contactUs" element={<ContactUs/>}/>
     </Routes>
     </BrowserRouter>
     </cartContext.Provider>
