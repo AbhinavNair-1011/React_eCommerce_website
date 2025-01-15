@@ -2,9 +2,12 @@ import React, { useContext, useEffect,useState } from "react";
 import "../stylings/products.css";
 import productsList from "../assets/data.json";
 import cartContext from "../context/cartContext";
+import { Navigate, useNavigate } from "react-router";
 
 
-const Products = () => {
+const Products = ({props}) => {
+  const navigate= useNavigate()
+
 const {cartHandler,cart,dispatch}=useContext(cartContext)
 const [list,setList]=useState([])
 const[isLoading,setIsLoading]=useState(true)
@@ -33,9 +36,13 @@ const addHandler=(item)=>{
   dispatch({type:"add",payload:item})
 dispatch({type:"totalPrice"})
 }
+const test =(obj)=>{
+props.setItem(obj)
+navigate(`/store/${obj.title}`)
 
+}
   let products = productsList.map((item, index) => (
-    <li className="product_wrapper" key={index}>
+    <li className="product_wrapper" key={index} onClick={()=>(test(item))}>
       <h1 className="product_title" key={index}>
         {item.title}
       </h1>
@@ -49,7 +56,7 @@ dispatch({type:"totalPrice"})
 
   let d = list.map((item, index) => (
 
-    <li className="product_wrapper2" key={index}>
+    <li className="product_wrapper2" key={index} onClick={()=>(test(item))}>
       <h1 className="product_title2" key={index}>
         {item.title}
       </h1>

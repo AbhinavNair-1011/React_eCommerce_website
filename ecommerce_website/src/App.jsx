@@ -11,6 +11,7 @@ import Home from "./components/Home"
 import ContactUs from './components/ContactUs'
 
 import {BrowserRouter, Routes,Route} from "react-router-dom"
+import ProductPage from './components/ProductPage'
 
 const App = () => {
   
@@ -80,7 +81,9 @@ const App = () => {
     <Routes>
       <Route index element={<Home/>}/>
       <Route path="/about" element={<About/>}/>
-      <Route path="/store" element={<StorePage/>}/>
+      <Route path="/store" element={<StorePage/>}>
+      <Route path="/store/:title" element={<ProductPage/>}/>
+      </Route>
 
       <Route path="/cart" element={<CartPage/>}/>
       <Route path="/contactUs" element={<ContactUs/>}/>
