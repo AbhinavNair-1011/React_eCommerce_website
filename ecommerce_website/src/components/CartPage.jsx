@@ -20,7 +20,7 @@ const CartPage = () => {
     <tr key={index} className="table_body_items_row">
       <td className="table_body_items" id="testing">
   
-        <img src={item.imageUrl} alt="" /> {item.title}
+        <img src={item.imageUrl || item.image} alt="" /> {item.title}
       </td>
 
       <td className="table_body_items"> {item.price}</td>

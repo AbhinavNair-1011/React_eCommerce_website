@@ -7,6 +7,7 @@ import cartContext from "../context/cartContext";
 const Products = () => {
 const {cartHandler,cart,dispatch}=useContext(cartContext)
 const [list,setList]=useState([])
+const[isLoading,setIsLoading]=useState(true)
 
 
 async function fetchProducts(){
@@ -19,7 +20,7 @@ async function fetchProducts(){
   (async () =>{
       const temp = await fetchProducts();
       let done=temp.map(item=>({...item,quantity:1}))
-      console.log(done)
+      setIsLoading(false)
       setList(done) 
   })()
 
@@ -47,6 +48,7 @@ dispatch({type:"totalPrice"})
 
 
   let d = list.map((item, index) => (
+
     <li className="product_wrapper2" key={index}>
       <h1 className="product_title2" key={index}>
         {item.title}
@@ -54,8 +56,10 @@ dispatch({type:"totalPrice"})
 
       <h2 className="product_price2">Price : {item.price} rs</h2>
       <img className="product_image2" src={item.image} alt="" />
+    
       <button className="addToCart" onClick={()=>{addHandler(item)}}>Add to cart</button>
     </li>
+    
   ));
 
 
@@ -64,7 +68,7 @@ dispatch({type:"totalPrice"})
   <h3  className="theme_heading">The Generic Themes</h3>
   <ul className="productsList">{products}</ul>
   <h3  className="theme_heading">Products</h3>
-  <ul className="productsList2">{d}</ul>
+  <ul className="productsList2">{isLoading  ? "loading...": d}</ul>
 
   
   </>;
