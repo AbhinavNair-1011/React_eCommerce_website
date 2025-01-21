@@ -33,16 +33,19 @@ async function fetchProducts(){
 
 
 const addHandler=(item)=>{
+  console.log(item)
   dispatch({type:"add",payload:item})
 dispatch({type:"totalPrice"})
 }
-const test =(obj)=>{
+const test =(obj,e)=>{
+  e.stopPropagation()
 props.setItem(obj)
-navigate(`/store/${obj.title}`)
+
+navigate(`/uv/store/${obj.title}`)
 
 }
   let products = productsList.map((item, index) => (
-    <li className="product_wrapper" key={index} onClick={()=>(test(item))}>
+    <li className="product_wrapper" key={index} onClick={(e)=>(test(item,e))}>
       <h1 className="product_title" key={index}>
         {item.title}
       </h1>

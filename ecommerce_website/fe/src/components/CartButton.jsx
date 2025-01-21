@@ -8,7 +8,7 @@ const CartButton = (props) => {
   const cartctx=useContext(cartContext)
   return (
     <button onClick={cartctx.cartHandler}className="navBar_cartButton">
-      <NavLink to="/cart">Cart</NavLink></button>
+      <NavLink to="/uv/cart">Cart</NavLink></button>
   )
 }
 

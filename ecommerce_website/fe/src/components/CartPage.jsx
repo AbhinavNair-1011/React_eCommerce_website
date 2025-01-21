@@ -54,7 +54,7 @@ const CartPage = () => {
 
       </table>
       <button className="cartClose" onClick={cartCtx.cartHandler}>
-        <NavLink to="/store">
+        <NavLink to="/uv/store">
         X
         </NavLink>
       </button>

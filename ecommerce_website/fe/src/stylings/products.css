@@ -18,6 +18,12 @@
     
 
 }
+.product_wrapper:hover{
+    cursor:pointer;
+}
+.addToCart:hover{
+    padding: 6px 11px;
+}
 
 .product_title{
     font-size: 25px;
